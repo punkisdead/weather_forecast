@@ -115,6 +115,7 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
+    interactor (3.1.2)
     io-console (0.7.2)
     irb (1.14.1)
       rdoc (>= 4.0.0)
@@ -171,6 +172,7 @@ GEM
       faraday (>= 2.0.1)
       faraday-multipart
       hashie
+    ostruct (0.6.0)
     parallel (1.26.3)
     parser (3.3.5.0)
       ast (~> 2.4.1)
@@ -328,8 +330,10 @@ DEPENDENCIES
   dotenv-rails
   geocoder
   importmap-rails
+  interactor
   jbuilder
   open-weather-ruby-client
+  ostruct
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.1)
