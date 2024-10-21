@@ -2,9 +2,6 @@ Geocoder.configure(
   # street address geocoding service (default :nominatim)
   lookup: :geoapify,
 
-  # IP address geocoding service (default :ipinfo_io)
-  ip_lookup: :maxmind,
-
   # to use an API key:
   api_key: "2a939d7f77da46118e411a62c3a47912",
 
