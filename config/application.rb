@@ -43,5 +43,7 @@ module Myapp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.cache_store = :mem_cache_store, { pool: false }
   end
 end
