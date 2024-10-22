@@ -9,7 +9,7 @@
   <% end %>
 </div>
 
-<% if @result %>
+<% if @result.success? %>
   <div class="flex py-2 px-2">
     Current Temp: <%= @result.forecast.temp %>&deg;
     Feels Like: <%= @result.forecast.feels_like %>&deg;

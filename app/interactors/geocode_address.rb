@@ -4,9 +4,10 @@ class GeocodeAddress
   def call
     result = Geocoder.search(context.address)
 
-    context.lat = result.first.latitude
-    context.lon = result.first.longitude
-    context.postcode = result.first.postal_code
+    context.fail!(message: "No geocode info found") if result.empty?
+    context.geocoded_address = result.first
+  rescue Geocoder::Error
+    context.fail!(message: "Unable to geocode address")
   end
 
 end

@@ -1,5 +1,5 @@
 class SearchWeather
   include Interactor::Organizer
 
-  organize GeocodeAddress, FetchWeather
+  organize GeocodeAddress, ParseGeocodeInfo, FetchWeather
 end
