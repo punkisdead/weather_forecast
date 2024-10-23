@@ -9,10 +9,15 @@
   <% end %>
 </div>
 
-<% if @result.success? %>
+<% if @result&.success? %>
   <div class="flex py-2 px-2">
     Current Temp: <%= @result.forecast.temp %>&deg;
     Feels Like: <%= @result.forecast.feels_like %>&deg;
     Cached: <%= @result.cached %>
   </div>
+<% end %>
+
+<% if @result&.failure? %>
+  <div>Something went wrong.</div>
+  <div><%= @result.message %></div>
 <% end %>
