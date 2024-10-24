@@ -10,9 +10,13 @@ In order to use the `geocoder` gem, an API key must be created and retrieved fro
 
 To leverage the OpenWeatherAPI client an API key must be created at [OpenWeatherAPI](https://openweathermap.org/api). The configuration for this client can be found in the `config/initializers/open_weather.rb` file. 
 
+## Interactor 
+
+This application leverages the [interactor](https://github.com/collectiveidea/interactor) gem to organize the multiple steps needed to retrieve the current weather for an address. 
+
 ## ENV vars
 
-In order to not store sensitive secrets in the application, all API keys and sensitive information is stored in a `.env` file, and in a `.env.test` for running the tests. A `.env.example` file has been provided as a starting point, and can be copied and used for the `.env` and `.env.test` files respectively. Just fill in the API keys that you've registered for Geoapify and OpenWeatherAPI.
+In order to not store sensitive secrets in the application, all API keys and sensitive information is stored in a `.env` file. A `.env.example` file has been provided as a starting point, and can be copied and used for the `.env` file locally. Just fill in the API keys that you've registered for Geoapify and OpenWeatherAPI.
 
 ## External services
 

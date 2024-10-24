@@ -18,6 +18,5 @@
 <% end %>
 
 <% if @result&.failure? %>
-  <div>Something went wrong.</div>
   <div><%= @result.message %></div>
 <% end %>

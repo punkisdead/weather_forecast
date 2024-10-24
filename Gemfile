@@ -54,6 +54,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
   gem "rspec-rails"
   gem "dotenv-rails"
+  gem "rails-controller-testing"
 end
 
 group :development do
