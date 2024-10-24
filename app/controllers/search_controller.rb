@@ -3,5 +3,4 @@ class SearchController < ApplicationController
     @search_param = params[:query]
     @result = SearchWeather.call(address: @search_param) if @search_param
   end
-
 end

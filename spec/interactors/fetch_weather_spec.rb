@@ -6,42 +6,49 @@ RSpec.describe FetchWeather do
   let(:lat) { 123 }
   let(:lon) { 234 }
   let(:postal_code) { "12345" }
-  let(:forecast) { OpenStruct.new(main: 'Some forecast data') }
+  let(:open_weather_result) { OpenStruct.new(main: open_weather_main) }
+  let(:open_weather_main) { OpenStruct.new(temp: 45, feels_like: 55) }
+  let(:forecast) { WeatherForecast.new(current_temp: 45, feels_like: 55, cached: cached) }
+  let(:cached) { true }
 
   before do
-    allow(OpenWeatherClient).to receive(:current_weather).and_return(forecast)
+    allow(OpenWeatherClient).to receive(:current_weather).and_return(open_weather_result)
   end
 
   describe '.call' do
     context 'when result is cached' do
+      let(:cached) { true }
+
       before do
-        allow(Rails.cache).to receive(:fetch).and_return(forecast)
+        allow(Rails.cache).to receive(:fetch).and_return(open_weather_result)
       end
 
       it { is_expected.to be_success }
 
       it 'returns the forecast data' do
-        expect(subject.forecast).to eq(forecast.main)
+        expect(subject.forecast).to eq(forecast)
       end
 
       it 'sets the cached flag to true' do
         subject
 
-        expect(subject.cached).to be_truthy
+        expect(subject.forecast.cached).to be_truthy
       end
     end
 
     context 'when result is not cached' do
+      let(:cached) { false }
+
       it { is_expected.to be_success }
 
       it 'returns the forecast data' do
-        expect(subject.forecast).to eq(forecast.main)
+        expect(subject.forecast).to eq(forecast)
       end
 
       it 'sets the cached flag to true' do
         subject
 
-        expect(subject.cached).to be_falsey
+        expect(subject.forecast.cached).to be_falsey
       end
     end
 
@@ -58,7 +65,7 @@ RSpec.describe FetchWeather do
     end
 
     context 'when result is missing the forecast' do
-      let(:forecast) { OpenStruct.new }
+      let(:open_weather_result) { OpenStruct.new }
 
       it { is_expected.to be_a_failure }
 

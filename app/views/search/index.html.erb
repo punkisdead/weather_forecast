@@ -11,9 +11,9 @@
 
 <% if @result&.success? %>
   <div class="flex py-2 px-2">
-    Current Temp: <%= @result.forecast.temp %>&deg;
+    Current Temp: <%= @result.forecast.current_temp %>&deg;
     Feels Like: <%= @result.forecast.feels_like %>&deg;
-    Cached: <%= @result.cached %>
+    Cached: <%= @result.forecast.cached %>
   </div>
 <% end %>
 

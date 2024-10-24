@@ -11,7 +11,7 @@ RSpec.describe GeocodeAddress do
 
   describe '.call' do
     context 'address results returned' do
-      let(:geocode_results) { ['foo', 'bar'] }
+      let(:geocode_results) { [ 'foo', 'bar' ] }
 
       it { is_expected.to be_success }
 

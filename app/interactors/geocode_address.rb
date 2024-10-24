@@ -9,5 +9,4 @@ class GeocodeAddress
   rescue Geocoder::Error
     context.fail!(message: "Unable to geocode address")
   end
-
 end

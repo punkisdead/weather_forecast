@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  resources :search, only: [:index]
+  resources :search, only: [ :index ]
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root to: redirect('search')
+  root to: redirect("search")
 end
